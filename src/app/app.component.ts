@@ -1,17 +1,11 @@
 import { Component } from '@angular/core';
+import { Hero } from './hero';
 
 @Component({
   selector: 'app-root',
   template: `
-  <div *ngIf="selectedHero">
-    <h1>{{title}}</h1>
-    <h2>{{selectedHero.name}} details!</h2>
-    <div><label>id: </label>{{selectedHero.id}}</div>
-    <div>
-    <label>name: </label>
-    <input [(ngModel)]="selectedHero.name" placeholder="name">
-  </div>
-</div>
+     <h1>{{title}}</h1>
+  <hero-detail [hero]="selectedHero"></hero-detail>
 <h2>My Heroes</h2>
 <ul class="heroes">
   <li [class.selected]="hero === selectedHero"
@@ -83,10 +77,7 @@ export class AppComponent {
 
 
 }
-export class Hero {
-  id: number;
-  name: string;
-}
+
 const HEROES: Hero[] = [
   { id: 11, name: 'Mr. Nice' },
   { id: 12, name: 'Narco' },
